@@ -180,6 +180,47 @@
       clear: both;
       line-height: 50px;
     }
+
+    #positioning-list > li {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    #positioning-list {
+      margin-left: 40px;
+      margin-bottom: 45px;
+      padding-left: 40px;
+    }
+
+    pre {
+      margin: 1em 0px;
+    }
+
+    #relative {
+      width: 325px;
+      text-align: center;
+      padding: 25px 35px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      position: relative;
+      right: 90px;
+      bottom: -45px;
+    }
+
+    .pos-absolute {
+      position: relative;
+    }
+
+    #absolute {
+      width: 200px;
+      text-align: center;
+      padding: 25px 35px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      position: absolute;
+      top: -30px;
+      left: 230px;
+    }
   </style>
 </head>
 <body>
@@ -294,10 +335,81 @@
         <div id="float-box-2" class="db-box float-left">Box 2</div>
         <div id="float-box-3" class="float-box-3 green-box">Box 3</div>
       </div>
+      <p>
+        Elements following a floated element will wrap around the floated element, we do not want this to happen, so I applied the 'clear: both' property to the third div, there are 2 other properties for clear, that's the left and the right. I chose to clear both, just to be sure.
+      </p>
+
+      <p>
+        There are other methods to clear floats, one of these methods is the clearix method:
+      </p>
+      <pre>
+        <code>
+        elementName::after {
+          content:" ";
+          display:block;
+          clear:both;
+        }
+        </code>
+      </pre>
+      <p>Basically, you just put the :after pseudo-element on the containing parent element of the floated contents.</p>
     </section>
-    <div id="fixed">
-      I'm positioned fixed
-    </div>
+    <section>
+      <h1>Positioning</h1>
+      <p>
+        Every now and then we want to position things the way we want it to be and move it around the page, and floats simply cannot do this as it can only take an element to position left or right of the page. This is where positioning comes in. There are four types of positioning:
+      </p>
+      <ul id="positioning-list">
+        <li>Static</li>
+        <li>Fixed</li>
+        <li>Relative</li>
+        <li>Absolute</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Static Position</h1>
+      <p>The element renders normally on the page - this is the default position of elements on the page.</p>
+    </section>
+    <section>
+      <h1>Fixed Position</h1>
+      <p>This will allow you to put an element on the same place even when the page is scrolled. Top, Right, Bottom and Left properties are used to position this property.</p>
+      <p>Fixed positioned elements are taken out of the flow and does not leave a gap in the location of the page where you originally put it.</p>
+      <div id="fixed">
+        I'm positioned fixed
+      </div>
+      <p>Noticed the blue box on the bottom left side of the page. It is a fixed position element.</p>
+    </section>
+    <section>
+      <h1>Position Relative</h1>
+      <p>
+        Positioned relative to its normal position. Setting the offset values will cause the element to move away from its normal position according to the values you've set. However, its position in the normal flow of the document will be preserved and following texts will not wrap around it.
+      </p>
+      <p>
+        When we position an element with offset values it moves on top of the next text/elements rather than pushing it down as to what padding and margin element would do.
+      </p>
+      <div class="tomato-box" id="relative">I'm a relatively positioned box!</div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non cumque repellat sapiente vitae nihil debitis accusamus, odit, tempore id reiciendis consequatur necessitatibus veritatis, distinctio vel, cum repellendus numquam blanditiis perferendis?
+      </p>
+    </section>
+    <section class="pos-absolute">
+      <h1>Position Absolute</h1>
+      <p>
+        When the element is positioned absolute it is taken out of the normal flow and the original space of that element in the document will not be preserved.
+      </p>
+      <p>
+        Absolutely positioned elements are moved in relation to their closest relatively positioned parent element. Should a relatively positioned parent element not exist, the absolutely positioned element will be positioned in relation to the &#60;body&#62; element.
+      </p>
+      <p>
+        Let's get some examples:
+      </p>
+      <p>
+        I will set the position of the section with the class of "pos-absolute" to position: relative so that the absolutely positioned element will be basing its offset values on the whole section element.
+      </p>
+      <p>
+        Notice the green box beside the Position Absolute title, it is an absolutely positioned element.
+      </p>
+      <div class="green-box" id="absolute">Absolutely Positioned Box</div>
+    </section>
   </div>
 </body>
 </html>
