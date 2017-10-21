@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Box Model, Positioning, and Floats</title>
+  <style>
+    #container {
+      width: 1000px;
+      padding: 20px;
+      color: #545459;
+      margin: 0 auto;
+      font: normal 16px Helvetica, Arial, sans-serif;
+      border: 2px solid #999;
+      background: #fff;
+    }
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    #container * {
+      box-sizing: border-box;
+    }
+
+    section > h1, h2 {
+      color: #ce4a4a;
+    }
+
+    #container section p {
+      line-height: 35px;
+      margin-bottom: 25px;
+    }
+
+    .wrapper {
+      margin-bottom: 35px;
+      text-align: center;
+    }
+
+    #fixed {
+      background: dodgerblue;
+      text-align: center;
+      color: white;
+      width: 225px;
+      border-radius: 10px;
+      position: fixed;
+      bottom: 50px;
+      left: 35px;
+      padding: 25px 35px;
+      box-sizing: border-box;
+    }
+
+    .border {
+      width: 650px;
+      border: 2px dashed #555;
+      padding: 30px;
+      margin: 45px;
+    }
+
+    .inline-margin a {
+      margin: 30px;
+    }
+
+    .inline-padding a {
+      background: green;
+      color: white;
+      padding: 30px;
+    }
+
+    .inline-floating a {
+      background: green;
+      color: white;
+      padding: 25px;
+      margin: 15px;
+      float: left;
+      width: 120px;
+      border: 3px solid darkgreen;
+      text-align: center;
+    }
+
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    .db-box {
+      background: dodgerblue;
+      color: white;
+    }
+
+    .float-left {
+      float: left;
+    }
+
+    .float-right {
+      float: right;
+    }
+
+    .green-box {
+      background: green;
+      color: white;
+    }
+
+    .tomato-box {
+      background: tomato;
+      color: white;
+    }
+
+    .red-border {
+      border: 1px solid red;
+    }
+
+    .block-float-box {
+      text-align: center;
+      line-height: 70px;
+      height: 70px;
+      width: 400px;
+    }
+
+    .inline-block-anchors {
+      text-align: center;
+    }
+
+    .inline-block-section {
+      padding-bottom: 30px;
+      border-bottom: 2px dashed #545459;
+    }
+
+    #block-float-box-2 {
+      width: 500px;
+    }
+
+    #block-box-2 {
+      padding: 20px;
+      margin: 20px;
+    }
+
+    #block-box-3 {
+      width: 90px;
+    }
+
+    .block-anchor {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    .nav {
+      display: inline-block;
+      border: 1px solid dodgerblue;
+      padding: 20px 30px;
+      margin: 20px 8px 25px 8px;
+      width: 180px;
+      text-align: center;
+    }
+
+    #floats-and-positioning {
+      text-align: center;
+    }
+
+    #float-box-1 #float-box-2 {
+      line-height: 100px;
+      font-weight: bold;
+    }
+
+    #float-box-1 {
+      width: 450px;
+      height: 100px;
+      font-weight: bold;
+    }
+
+    #float-box-2 {
+      width: 505px;
+      height: 100px;
+      font-weight: bold;
+    }
+
+    #float-box-3 {
+      width: 955px;
+      height: 50px;
+      font-weight: bold;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <section>
+      <h1>Inline Elements</h1>
+      <p>Inline elements occupy only the space of its content. It does not take width or height values.</p>
+      <p><strong>Example:</strong></p>
+      <p>Anchor tags are normally inline elements, you see they only take up the width of their content and not the whole width of the page then the next anchor tags follow right after it</p>
+      <div class="border">
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+      </div>
+      <p><strong>What happens if we set a margin property on an inline level element?</strong></p>
+      <p>Inline elements will only take left and right margin values.</p>
+      <div class="border inline-margin">
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+      </div>
+      <p>In the example I put a margin of 30px on all sides, as you can see if you check the anchor tag in the developer tools only the left and right side of the contents are affected by the margin.</p>
+      <p><strong>What about padding?</strong></p>
+      <div class="border inline-padding">
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+      </div>
+      <p>Inline elements accept padding values on all sides.</p>
+      <p><strong>Floating Inline Elements</strong></p>
+      <div class="border inline-floating clearfix">
+        <a href="#">Home</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+      </div>
+      <p>Floating inline elements will change its display value to a block level element and subject to all block level characteristics. Which means it can take margin and padding values, height and width values as well.</p>
+    </section>
+    <section>
+      <h1>Block Elements</h1>
+      <p>
+        Block level elements take up the entire width of the page and always start in a new line. It can have margin/s and padding/s. If no width is set, it will expand naturally to fill its parent container. If not height is set, it will expand to fit its content.
+      </p>
+      <p><strong>
+        Example: (Div elements are naturally block level elements)
+      </strong></p>
+      <div class="wrapper">
+        <div class="db-box">This is a div with no width and height set.</div>
+        <div class="green-box" id="block-box-2">This a div with no width but with a height of 60px, with a padding and margin of 20px around it.</div>
+        <div class="tomato-box" id="block-box-3">This a div with a width of 90px and no height set.</div>
+      </div>
+      <p>
+        In the first example, the div fills the entire width, and uses just enough height to fill its content. In the second box, we didn't set a width, but it still filled the entire width (counting the padding and margin); it also uses 60px of height plus the margin and padding. For the third box, we set the width to 90px, and as expected, it took just enough height to fill its content. The text was squished because of the reduced width, so the browser expanded the height to accommodate the content.
+      </p>
+      <p><strong>
+        Floating Block Elements
+      </strong></p>
+      <p><strong>
+        Floating block elements with no width and height set.
+      </strong></p>
+      <div class="wrapper clearfix">
+        <div class="red-border db-box float-left">Box - 1 - Floated Left</div>
+        <div class="red-border tomato-box float-right">Box - 2 - Floated Right</div>
+      </div>
+      <p>
+        It floated our elements to the left and right on the same block. It shrunk to the widest element within each div, in our case the texts inside, since we didn't set a specific width for each.
+      </p>
+      <p><strong>Floating block elements with width and height set.</strong></p>
+      <div class="wrapper clearfix">
+        <div class="block-float-box tomato-box float-left">
+          Box - 1 - Floated Left
+        </div>
+        <div class="db-box float-right block-float-box" id="block-float-box-2"> Box - 2 - Floated Right</div>
+      </div>
+      <p><strong>
+        Can we change an inline element into a block element?
+      </strong></p>
+      <p>Let's use the anchor tag as an example.</p>
+      <div class="wrapper">
+        <a class="db-box block-anchor" href="#">Home</a>
+        <a class="db-box block-anchor" href="#">About</a>
+        <a class="db-box block-anchor" href="#">Contact</a>
+      </div>
+      <p>
+        Yes, we can change display values from a block element to inline element and vice versa.Display values can be overwritten by another display value.
+      </p>
+    </section>
+    <section class="inline-block-section">
+      <h1>Inline-Block Elements</h1>
+      <p>
+        Inline-block elements are inline elements that can take block elements properties, such as width and height. It acts similarly to a float minus the clear property.
+      </p>
+      <p><strong>
+        Example: Let's use inline-block to create a navigation.
+      </strong></p>
+      <div class="inline-block-anchors">
+        <a class="db-box nav" href="#">Home</a>
+        <a class="db-box nav" href="#">Portfolio</a>
+        <a class="db-box nav" href="#">About</a>
+        <a class="db-box nav" href="#">Contact</a>
+      </div>
+      <p>We achieved the same results as to when we float the anchor elements to give them the block elements' properties. It's you get two elements in just one, you get to have the properties of inline elements and at the same time get the properties of block elements.</p>
+    </section>
+    <section class="floats-and-positioning">
+      <h1 id="floats-and-positioning">Floats and Positioning Elements</h1>
+      <h2>Floats</h2>
+      <p>A floated element is taken out of the normal flow then shifted left or right.When you float a content it becomes a block-level element.</p>
+      <p><strong>
+        Example
+      </strong></p>
+      <div class="wrapper">
+        <div id="float-box-1" class="tomato-box float-left">Box 1</div>
+        <div id="float-box-2" class="db-box float-left">Box 2</div>
+        <div id="float-box-3" class="float-box-3 green-box">Box 3</div>
+      </div>
+    </section>
+    <div id="fixed">
+      I'm positioned fixed
+    </div>
+  </div>
+</body>
+</html>

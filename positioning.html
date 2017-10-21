@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Positioning</title>
+  <style>
+  #square {
+    width: 20px;
+    height: 20px;
+    background: black;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+  }
+  #positioned {
+        background-color: #ffffcc;
+        box-sizing: border-box;
+        padding: 30px 15px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 400px;
+        margin-left: -200px;
+        z-index: 2;
+      }
+  #fixed {
+    background: rgba(0, 0, 0, .6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+  }
+  </style>
+</head>
+<body>
+  <div id="fixed"></div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales, dui at sollicitudin rutrum, mi lacus interdum mi, in pharetra ipsum ligula ut felis. Morbi dignissim auctor libero ut ultrices. Etiam tempus arcu congue dolor lacinia, sit amet dapibus nulla elementum. Vestibulum tempus elit sed suscipit ultricies. Integer tincidunt bibendum est in vulputate. Etiam porttitor nunc augue, mollis maximus dolor scelerisque at. Duis feugiat urna augue, at molestie felis scelerisque in. Nulla semper quam eget lacus elementum condimentum. Donec mattis justo vel lorem lacinia tristique. Morbi placerat imperdiet efficitur. Curabitur vitae rutrum erat. Morbi ac sapien libero.</p>
+  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi faucibus nulla id purus fringilla aliquet. Praesent porttitor turpis venenatis rhoncus accumsan. Nunc ac volutpat orci. Etiam ut arcu eget lacus interdum lacinia. Nulla pellentesque suscipit auctor. Nulla tincidunt orci a quam vulputate efficitur. Sed vehicula ac massa vel porta. Integer feugiat libero vitae est tristique bibendum. Donec imperdiet varius aliquam. In nec pharetra diam, nec pretium lectus. Pellentesque nec venenatis ligula, sed sodales felis. Maecenas vulputate quam eu diam facilisis, a sollicitudin arcu tempus. Suspendisse a efficitur dui. Maecenas vitae lacus id arcu ultricies mollis consectetur at ipsum.</p>
+  <p>Mauris quis turpis velit. Nullam pharetra nunc lacus, eget dignissim velit auctor in. Duis sollicitudin fermentum molestie. Vivamus consequat est sit amet arcu pulvinar, a semper leo dapibus. Aliquam imperdiet metus congue, tristique dui eu, fermentum ipsum. Suspendisse vel risus non ante luctus tincidunt. Nulla vel augue vestibulum, consectetur eros eget, condimentum diam. Nam vitae lacinia augue. Aliquam iaculis, est vitae hendrerit imperdiet, arcu turpis pulvinar dui, ac convallis sem velit sit amet dui. Suspendisse porttitor et orci vitae cursus. Praesent eleifend placerat enim, eget laoreet nisi lobortis vitae. Sed ullamcorper ultrices massa, at vehicula tortor commodo vitae. Nullam a bibendum magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec molestie urna purus, quis ultrices quam convallis eget.</p>
+  <p>Mauris quis turpis velit. Nullam pharetra nunc lacus, eget dignissim velit auctor in. Duis sollicitudin fermentum molestie. Vivamus consequat est sit amet arcu pulvinar, a semper leo dapibus. Aliquam imperdiet metus congue, tristique dui eu, fermentum ipsum. Suspendisse vel risus non ante luctus tincidunt. Nulla vel augue vestibulum, consectetur eros eget, condimentum diam. Nam vitae lacinia augue. Aliquam iaculis, est vitae hendrerit imperdiet, arcu turpis pulvinar dui, ac convallis sem velit sit amet dui. Suspendisse porttitor et orci vitae cursus. Praesent eleifend placerat enim, eget laoreet nisi lobortis vitae. Sed ullamcorper ultrices massa, at vehicula tortor commodo vitae. Nullam a bibendum magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec molestie urna purus, quis ultrices quam convallis eget.</p>
+  <div id="positioned"><span id="square"></span>I'm positioned!</div>
+</body>
+</html>
